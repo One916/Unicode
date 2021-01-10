@@ -1,13 +1,8 @@
-#include<iostream>
-#include<iomanip>
-#include<string>
-#include<io.h>
-#include<fcntl.h>
-#include <codecvt>
-using namespace std;
 typedef basic_ostream<char16_t> u16ostream;
 typedef basic_streambuf<char16_t> u16streambuf;
 u16ostream u16cout(reinterpret_cast<u16streambuf*>(wcout.rdbuf()));
+typedef basic_istream<char16_t> u16istream;
+u16istream u16cin(reinterpret_cast<u16streambuf*>(wcin.rdbuf()));
 typedef basic_ostream<char8_t> u8ostream;
 typedef basic_streambuf<char8_t> u8streambuf;
 u8ostream u8cout(reinterpret_cast<u8streambuf*>(wcout.rdbuf()));
@@ -68,3 +63,7 @@ u8ostream& operator<<(u8ostream& os,u8string c8){
 	os<<c8.c_str();
 	return os;
 }
+inline int _u16o_start(){return _setmode(_fileno(stdout),_O_U16TEXT);}
+inline int _u16o_end(){return _setmode(_fileno(stdout),_O_TEXT);}
+inline int _u16i_start(){return _setmode(_fileno(stdin),_O_U16TEXT);}
+inline int _u16i_end(){return _setmode(_fileno(stdin),_O_TEXT);}
