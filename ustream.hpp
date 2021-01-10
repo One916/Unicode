@@ -1,3 +1,11 @@
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<io.h>
+#include<fcntl.h>
+#include <codecvt>
+using namespace std;
+
 typedef basic_ostream<char16_t> u16ostream;
 typedef basic_streambuf<char16_t> u16streambuf;
 u16ostream u16cout(reinterpret_cast<u16streambuf*>(wcout.rdbuf()));
